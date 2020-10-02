@@ -7,6 +7,7 @@ class Panel extends CI_Controller
 		parent::__construct();
 
 		$this->load->model('Panelmodel');
+        
 	}
 
     public function index()
@@ -46,14 +47,43 @@ class Panel extends CI_Controller
 		    $this->load->view('templates/panel_footer');
     	}
     }
-    public function univ(){
+    public function fakultas(){
     	if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
     		redirect('Auth');
     	}else{
-    		
+    		$data['fakul'] = $this->Panelmodel->getfakultas()->result();
     		$this->load->view('templates/panel_header');
 		    $this->load->view('templates/panel_menu');
+            $this->load->view('fakul/index', $data);
 		    $this->load->view('templates/panel_footer');
     	}
+    }
+
+    public function penelitian(){
+        if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
+            redirect('Auth');
+        }else{
+
+            $data['riset'] = $this->Panelmodel->getriset()->result();
+
+            $this->load->view('templates/panel_header');
+            $this->load->view('templates/panel_menu');
+            $this->load->view('riset/index', $data);
+            $this->load->view('templates/panel_footer');
+        }
+    }
+
+    public function pengab(){
+        if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
+            redirect('Auth');
+        }else{
+
+            $data['pengab'] = $this->Panelmodel->getpengab()->result();
+
+            $this->load->view('templates/panel_header');
+            $this->load->view('templates/panel_menu');
+            $this->load->view('pengab/index', $data);
+            $this->load->view('templates/panel_footer');
+        }
     }
 }

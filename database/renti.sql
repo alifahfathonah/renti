@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 01 Okt 2020 pada 08.36
+-- Waktu pembuatan: 02 Okt 2020 pada 06.53
 -- Versi server: 8.0.18
 -- Versi PHP: 7.3.11
 
@@ -25,18 +25,103 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `dosen`
+--
+
+CREATE TABLE `dosen` (
+  `id_dosen` int(15) NOT NULL,
+  `id_fakultas` int(15) NOT NULL,
+  `id_prodi` int(15) NOT NULL,
+  `nama_dosen` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat` text COLLATE utf8mb4_general_ci NOT NULL,
+  `telp` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_user` int(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `fakultas`
+--
+
+CREATE TABLE `fakultas` (
+  `id_fakultas` int(15) NOT NULL,
+  `kode_fakul` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_fakul` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat_fakul` text COLLATE utf8mb4_general_ci NOT NULL,
+  `telp_fakul` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `email_fakul` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `fakultas`
+--
+
+INSERT INTO `fakultas` (`id_fakultas`, `kode_fakul`, `nama_fakul`, `alamat_fakul`, `telp_fakul`, `email_fakul`) VALUES
+(2, 'FT', 'Fakultas Teknik', 'juwita kanan', '3256562', 'mail@mail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `mahasiswa`
+--
+
+CREATE TABLE `mahasiswa` (
+  `id_mahasiswa` int(15) NOT NULL,
+  `id_fakultas` int(15) NOT NULL,
+  `id_prodi` int(15) NOT NULL,
+  `nama_mahasiswa` text COLLATE utf8mb4_general_ci NOT NULL,
+  `tempat_lahir` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `tanggal_lahir` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `alamat` text COLLATE utf8mb4_general_ci NOT NULL,
+  `telp` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `penelitian`
 --
 
 CREATE TABLE `penelitian` (
   `id_penelitian` int(50) NOT NULL,
-  `id_luaranpenelitian` int(50) NOT NULL,
   `judul_penelitian` varchar(100) NOT NULL,
   `tahun_penelitian` int(100) NOT NULL,
   `sumber_dana` varchar(100) NOT NULL,
   `jumla_dana` int(100) NOT NULL,
   `lampiran` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `penelitian`
+--
+
+INSERT INTO `penelitian` (`id_penelitian`, `judul_penelitian`, `tahun_penelitian`, `sumber_dana`, `jumla_dana`, `lampiran`) VALUES
+(0, 'Sistem Informasi Kampus 4.0', 2019, 'Swasta', 12000000, '5f76c85599dc6.pdf');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pengabdian`
+--
+
+CREATE TABLE `pengabdian` (
+  `id` int(15) NOT NULL,
+  `judul` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `jenis` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `tanggal_mulai` date NOT NULL,
+  `tanggal_akhir` date NOT NULL,
+  `tahun` text COLLATE utf8mb4_general_ci NOT NULL,
+  `lampiran` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `pengabdian`
+--
+
+INSERT INTO `pengabdian` (`id`, `judul`, `jenis`, `tanggal_mulai`, `tanggal_akhir`, `tahun`, `lampiran`) VALUES
+(3, 'Baksos yah', 'sosial', '2020-09-28', '2020-10-03', '2020', '5f76ce56519b9.pdf');
 
 -- --------------------------------------------------------
 
@@ -55,8 +140,7 @@ CREATE TABLE `prodi` (
 --
 
 INSERT INTO `prodi` (`id_prodi`, `kode_prodi`, `nama_prodi`) VALUES
-(11, 'SI', 'Sistem Informasi'),
-(12, 'TI', 'Teknik Informatika');
+(13, 'TI', 'Teknik Informatika');
 
 -- --------------------------------------------------------
 
@@ -109,10 +193,28 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 --
 
 --
+-- Indeks untuk tabel `fakultas`
+--
+ALTER TABLE `fakultas`
+  ADD PRIMARY KEY (`id_fakultas`);
+
+--
+-- Indeks untuk tabel `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+  ADD PRIMARY KEY (`id_mahasiswa`);
+
+--
 -- Indeks untuk tabel `penelitian`
 --
 ALTER TABLE `penelitian`
   ADD PRIMARY KEY (`id_penelitian`);
+
+--
+-- Indeks untuk tabel `pengabdian`
+--
+ALTER TABLE `pengabdian`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `prodi`
@@ -137,16 +239,34 @@ ALTER TABLE `user_role`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `fakultas`
+--
+ALTER TABLE `fakultas`
+  MODIFY `id_fakultas` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+  MODIFY `id_mahasiswa` int(15) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `pengabdian`
+--
+ALTER TABLE `pengabdian`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT untuk tabel `prodi`
 --
 ALTER TABLE `prodi`
-  MODIFY `id_prodi` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_prodi` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_role`
