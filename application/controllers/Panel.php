@@ -41,11 +41,27 @@ class Panel extends CI_Controller
     	if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
     		redirect('Auth');
     	}else{
-    		
+    		$data['mahas'] = $this->Panelmodel->getmahas()->result();
+            $data['fakul'] = $this->Panelmodel->getfakultas()->result();
+            $data['prodi'] = $this->Panelmodel->getprodi()->result();
     		$this->load->view('templates/panel_header');
 		    $this->load->view('templates/panel_menu');
+            $this->load->view('mahas/index',$data);
 		    $this->load->view('templates/panel_footer');
     	}
+    }
+    public function dosen(){
+        if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
+            redirect('Auth');
+        }else{
+            $data['dosen'] = $this->Panelmodel->getdosen()->result();
+            $data['fakul'] = $this->Panelmodel->getfakultas()->result();
+            $data['prodi'] = $this->Panelmodel->getprodi()->result();
+            $this->load->view('templates/panel_header');
+            $this->load->view('templates/panel_menu');
+            $this->load->view('dosen/index',$data);
+            $this->load->view('templates/panel_footer');
+        }
     }
     public function fakultas(){
     	if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
@@ -60,7 +76,7 @@ class Panel extends CI_Controller
     }
 
     public function penelitian(){
-        if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
+        if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2'  && $this->session->userdata('role_id') != '1' && $this->session->userdata('role_id') != '3') {
             redirect('Auth');
         }else{
 
@@ -74,7 +90,7 @@ class Panel extends CI_Controller
     }
 
     public function pengab(){
-        if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
+        if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2' && $this->session->userdata('role_id') != '1') {
             redirect('Auth');
         }else{
 

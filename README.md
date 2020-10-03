@@ -8,10 +8,14 @@ project sistem informasi kampus berbasis ci3 renti
 01-10-2020<br/>
 -fix akses login dan logout<br/>
 -penmbhan modul prodi<br/>
--update database
+-update database<br/>
 02-10-2020<br/>
 -penmbhan modul penelitian<br/>
 -penmbhan modul pengabdian masyarakat<br/>
 -penmbhan modul fakultas<br/>
--update database
-
+-update database<br/>
+03-10-2020 (projek selesai estimasi terpenuhi 3 hari)<br/>
+-penmbhan modul dosen<br/>
+-penmbhan modul mahasiswa<br/>
+-Menunggu rancangan laporan<br/>
+-update database<br/>

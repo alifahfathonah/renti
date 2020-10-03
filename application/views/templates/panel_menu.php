@@ -51,6 +51,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link collapsed" href="<?= base_url('panel/dosen'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-user-clock"></i>
+          <span>Dosen</span>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link collapsed" href="<?= base_url('panel/fakultas'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-user-clock"></i>
           <span>Fakultas</span>
@@ -72,12 +78,6 @@
         <a class="nav-link collapsed" href="<?= base_url('panel/laporan'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-user-clock"></i>
           <span>Laporan</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="<?= base_url('panel/user'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-user-clock"></i>
-          <span>User</span>
         </a>
       </li>
       <div class="text-center d-none d-md-inline">
@@ -178,17 +178,12 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Mimin Ganteng</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->userdata('email'); ?></span>
                 
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-               
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
                 <div class="dropdown-divider"></div>
                
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">

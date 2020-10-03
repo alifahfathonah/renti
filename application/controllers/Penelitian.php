@@ -27,7 +27,7 @@ class Penelitian extends CI_Controller
 	}
 
 	public function add(){
-		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
+		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2' && $this->session->userdata('role_id') != '1' && $this->session->userdata('role_id') != '3') {
     		redirect('Auth');
     	}else{
     	$this->id_files = uniqid();
@@ -48,7 +48,7 @@ class Penelitian extends CI_Controller
 		
 	}
 	public function hapus($id){
-		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
+		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2'  && $this->session->userdata('role_id') != '1' && $this->session->userdata('role_id') != '3') {
     		redirect('Auth');
     	}else{
 			$this->Panelmodel->hapuspenelitian($id);
@@ -62,7 +62,7 @@ class Penelitian extends CI_Controller
 	}
 
 	public function praedit(){
-		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
+		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2'  && $this->session->userdata('role_id') != '1' && $this->session->userdata('role_id') != '3') {
     		redirect('Auth');
     	}else{
     		$id = htmlspecialchars($this->input->post('riset', true));
@@ -104,7 +104,7 @@ class Penelitian extends CI_Controller
 	}
 
 	public function update(){
-		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
+		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2'  && $this->session->userdata('role_id') != '1' && $this->session->userdata('role_id') != '3') {
     		redirect('Auth');
     	}else{
     		$data['judul_penelitian'] = htmlspecialchars($this->input->post('judul', true));

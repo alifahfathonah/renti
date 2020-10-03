@@ -139,4 +139,103 @@ class PanelModel extends CI_Model {
     }
 
     // batah akhir modul pengabdian masyarakat
+
+
+    // kode logic modul mahasiswa
+    public function getmahas(){
+        $this->db->select('*');
+        $this->db->from('mahasiswa');
+        $this->db->join('fakultas', 'fakultas.id_fakultas = mahasiswa.id_fakultas','left');
+        $this->db->join('prodi', 'prodi.id_prodi = mahasiswa.id_prodi','left');
+        $data = $this->db->get();
+        return $data;
+    }
+
+    public function addmahas($data){
+        $this->id_fakultas = $data['id_fakultas'];
+        $this->id_prodi = $data['id_prodi'];
+        $this->nama_mahasiswa = $data['nama_mahasiswa'];
+        $this->tempat_lahir = $data['tempat_lahir'];
+        $this->tanggal_lahir = $data['tanggal_lahir'];
+        $this->alamat = $data['alamat'];
+        $this->telp = $data['telp'];
+        $this->email = $data['email'];
+        $this->db->insert('mahasiswa', $this);
+        return;
+    }
+
+    public function hapusmahas($id){
+
+        $this->db->where('id_mahasiswa',$id);
+        $this->db->delete('mahasiswa');
+       return;
+    }
+
+    public function mahasedit($id){
+        $this->db->select('*');
+        $this->db->from('mahasiswa');
+        $this->db->join('fakultas', 'fakultas.id_fakultas = mahasiswa.id_fakultas','left');
+        $this->db->join('prodi', 'prodi.id_prodi = mahasiswa.id_prodi','left');
+        $this->db->where('id_mahasiswa', $id); 
+        $result = $this->db->get()->row(); 
+        return $result;
+    }
+
+    public function mahasupdate($where,$data){
+        $this->db->where($where);
+        $this->db->update('mahasiswa',$data);
+        return;
+    }
+    // batas akhir modul mahasiswa
+
+    // kode logic untuk module dosen
+     public function getdosen(){
+        $this->db->select('*');
+        $this->db->from('dosen');
+        $this->db->join('fakultas', 'fakultas.id_fakultas = dosen.id_fakultas','left');
+        $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi','left');
+        $this->db->join('user', 'user.id = dosen.id_user','left');
+        $data = $this->db->get();
+        return $data;
+    }
+    public function adddosen($por){
+        $this->id_fakultas = $por['id_fakultas'];
+        $this->id_prodi = $por['id_prodi'];
+        $this->nama_dosen = $por['nama_dosen'];
+        $this->alamat = $por['alamat'];
+        $this->telp = $por['telp'];
+        $this->id_user = $por['id_user'];
+        $this->db->insert('dosen', $this);
+        return;
+    }
+
+    public function getid($id){
+        $this->db->where('date_created', $id); 
+        $result = $this->db->get('user')->row(); 
+        return $result;
+    }
+
+    public function hapusdosen($id){
+        $this->db->where('id_dosen',$id);
+        $this->db->delete('dosen');
+       return;
+    }
+
+    public function dosenedit($id){
+        $this->db->select('*');
+        $this->db->from('dosen');
+        $this->db->join('fakultas', 'fakultas.id_fakultas = dosen.id_fakultas','left');
+        $this->db->join('prodi', 'prodi.id_prodi = dosen.id_prodi','left');
+        $this->db->join('user', 'user.id = dosen.id_user','left');
+        $this->db->where('id_dosen', $id); 
+        $result = $this->db->get()->row(); 
+        return $result;
+    }
+    public function dosenupdate($where,$data){
+        $this->db->where($where);
+        $this->db->update('dosen',$data);
+        return;
+    }
+
+    // batas akhir modul dosen
 }

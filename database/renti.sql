@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 02 Okt 2020 pada 06.53
+-- Waktu pembuatan: 03 Okt 2020 pada 08.56
 -- Versi server: 8.0.18
 -- Versi PHP: 7.3.11
 
@@ -38,6 +38,13 @@ CREATE TABLE `dosen` (
   `id_user` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `dosen`
+--
+
+INSERT INTO `dosen` (`id_dosen`, `id_fakultas`, `id_prodi`, `nama_dosen`, `alamat`, `telp`, `id_user`) VALUES
+(3, 2, 15, 'AJI ARIAN NOFA', 'Bengkulu kota', '082281022494', 31);
+
 -- --------------------------------------------------------
 
 --
@@ -58,7 +65,8 @@ CREATE TABLE `fakultas` (
 --
 
 INSERT INTO `fakultas` (`id_fakultas`, `kode_fakul`, `nama_fakul`, `alamat_fakul`, `telp_fakul`, `email_fakul`) VALUES
-(2, 'FT', 'Fakultas Teknik', 'juwita kanan', '3256562', 'mail@mail.com');
+(2, 'FT', 'Fakultas Teknik', 'juwita kanan', '3256562', 'mail@mail.com'),
+(3, 'FKIP', 'Keguruan dan Ilmu Pendidikan', 'jl nangka', '3435', 'mail1@mail.com');
 
 -- --------------------------------------------------------
 
@@ -77,6 +85,13 @@ CREATE TABLE `mahasiswa` (
   `telp` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`id_mahasiswa`, `id_fakultas`, `id_prodi`, `nama_mahasiswa`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telp`, `email`) VALUES
+(2, 2, 15, 'FAISAL INASRI', 'Bengkulu', '2020-09-30', 'nangka lintas', '766666666677', 'mail1@mail.com');
 
 -- --------------------------------------------------------
 
@@ -140,7 +155,9 @@ CREATE TABLE `prodi` (
 --
 
 INSERT INTO `prodi` (`id_prodi`, `kode_prodi`, `nama_prodi`) VALUES
-(13, 'TI', 'Teknik Informatika');
+(13, 'TI', 'Teknik Informatika'),
+(15, 'SI', 'Sistem Informasi'),
+(16, 'DKV', 'Desain Komunikasi Visual');
 
 -- --------------------------------------------------------
 
@@ -166,7 +183,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
 (10, 'admintridhrma', 'admintridharma@gmail.com', 'default.jpg', '$2y$10$jPoZjCs/do8LFZUGcPQcqeD0vJMZ3TRrB56dTwGtllcgV3lGkQDMa', 2, 1, 1600835899),
 (11, 'kepalaLPPM', 'Lppm@gmail.com', 'default.jpg', '$2y$10$cqgfp4bPau50IxZNr6dkROL08L2CHTz9JCsI86YxYiID7AvnHXLkm', 1, 1, 1600835961),
-(12, 'dosen', 'dosenunivbi@gmail.com', 'default.jpg', '$2y$10$Kgok36UZ8cqXVnDGOpCr2en2dqtnPvS4v7qkWF7Iu75rPuwsnPXT6', 3, 1, 1600836015);
+(31, 'AJI ARIAN NOFA', 'mail@mail.com', 'default.jpg', '$2y$10$Tk6CNsC/RVH0irQIA6npPuOFG7MK5LzH8cuxYPhM/jfEy6TjywLh6', 3, 1, 1601715129);
 
 -- --------------------------------------------------------
 
@@ -191,6 +208,12 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `dosen`
+--
+ALTER TABLE `dosen`
+  ADD PRIMARY KEY (`id_dosen`);
 
 --
 -- Indeks untuk tabel `fakultas`
@@ -239,16 +262,22 @@ ALTER TABLE `user_role`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `dosen`
+--
+ALTER TABLE `dosen`
+  MODIFY `id_dosen` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT untuk tabel `fakultas`
 --
 ALTER TABLE `fakultas`
-  MODIFY `id_fakultas` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_fakultas` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id_mahasiswa` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mahasiswa` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengabdian`
@@ -260,13 +289,13 @@ ALTER TABLE `pengabdian`
 -- AUTO_INCREMENT untuk tabel `prodi`
 --
 ALTER TABLE `prodi`
-  MODIFY `id_prodi` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_prodi` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_role`
