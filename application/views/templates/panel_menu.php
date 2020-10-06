@@ -1,4 +1,3 @@
-
 <body id="page-top">
 
   <!-- Page Wrapper -->
@@ -112,6 +111,12 @@
         <a class="nav-link collapsed" href="<?= base_url('panel/laporan'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-user-clock"></i>
           <span>Laporan</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?= base_url('panel/mahasiswa'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-user-clock"></i>
+          <span>Mahasiswa</span>
         </a>
       </li>
       <div class="text-center d-none d-md-inline">
