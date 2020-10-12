@@ -59,7 +59,6 @@
 
   <!-- Page level custom scripts -->
   <script src="<?= base_url('assets/'); ?>js/demo/datatables-demo.js"></script>
-  <!-- <script src="<?= base_url('assets/'); ?>vendor/datepicker/js/bootstrap-datepicker.min.js"></script> -->
 
 </body>
 

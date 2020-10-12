@@ -238,4 +238,63 @@ class PanelModel extends CI_Model {
     }
 
     // batas akhir modul dosen
+
+
+    // modul untuk user
+
+    public function getuser(){
+        $this->db->select('*');
+        $this->db->from('user');
+        $id = array('1', '2');
+        $this->db->where_in('role_id', $id);
+        $data = $this->db->get();
+        return $data;
+    }
+
+    public function roleuser(){
+        $this->db->select('*');
+        $this->db->from('user_role');
+        $id = array('1', '2');
+        $this->db->where_in('id', $id);
+        $data = $this->db->get();
+        return $data;
+    }
+
+    public function adduser($data){
+        $this->name = $data['name'];
+        $this->email = $data['email'];
+        $this->role_id = $data['role_id'];
+        $this->is_active = 1;
+        $this->date_created = $data['date'];
+        $this->image = 'default.jpg';
+        $this->password = $data['pass'];
+        $this->db->insert('user', $this);
+        return;
+    }
+
+    public function hapususer($id){
+        $this->db->where('id',$id);
+        $this->db->delete('user');
+       return;
+    }
+
+    public function userjbt($id){
+        $this->db->where('id', $id); 
+        $result = $this->db->get('user_role')->row(); 
+        return $result;
+    }
+
+    public function useredit($id){
+        $this->db->where('id', $id); 
+        $result = $this->db->get('user')->row(); 
+        return $result;
+    }
+
+    public function userupdate($where,$data){
+        $this->db->where($where);
+        $this->db->update('user',$data);
+        return;
+    }
+
+    // batas akhir untuk module user
 }

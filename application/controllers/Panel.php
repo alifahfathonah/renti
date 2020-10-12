@@ -102,4 +102,34 @@ class Panel extends CI_Controller
             $this->load->view('templates/panel_footer');
         }
     }
+    public function user(){
+        if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
+            redirect('Auth');
+        }else{
+
+            $data['user'] = $this->Panelmodel->getuser()->result();
+            $data['role'] = $this->Panelmodel->roleuser()->result();
+
+            $this->load->view('templates/panel_header');
+            $this->load->view('templates/panel_menu');
+            $this->load->view('user/index', $data);
+            $this->load->view('templates/panel_footer');
+        }
+    }
+
+    public function laporan(){
+        if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
+            redirect('Auth');
+        }else{
+            $data['riset'] = $this->Panelmodel->getriset()->result();
+            $data['mahas'] = $this->Panelmodel->getmahas()->result();
+            $data['pengab'] = $this->Panelmodel->getpengab()->result();
+            $data['fakul'] = $this->Panelmodel->getfakultas()->result();
+            $this->load->view('templates/panel_header');
+            $this->load->view('templates/panel_menu');
+            $this->load->view('laporan/index',$data);
+            $this->load->view('templates/panel_footer');
+        }
+    }
+
 }

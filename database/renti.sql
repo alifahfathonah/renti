@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 03 Okt 2020 pada 08.56
+-- Waktu pembuatan: 12 Okt 2020 pada 14.30
 -- Versi server: 8.0.18
 -- Versi PHP: 7.3.11
 
@@ -181,9 +181,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `image`, `password`, `role_id`, `is_active`, `date_created`) VALUES
-(10, 'admintridhrma', 'admintridharma@gmail.com', 'default.jpg', '$2y$10$jPoZjCs/do8LFZUGcPQcqeD0vJMZ3TRrB56dTwGtllcgV3lGkQDMa', 2, 1, 1600835899),
+(10, 'admin tridhrma', 'admintridharma@gmail.com', 'default.jpg', '$2y$10$jPoZjCs/do8LFZUGcPQcqeD0vJMZ3TRrB56dTwGtllcgV3lGkQDMa', 2, 1, 1600835899),
 (11, 'kepalaLPPM', 'Lppm@gmail.com', 'default.jpg', '$2y$10$cqgfp4bPau50IxZNr6dkROL08L2CHTz9JCsI86YxYiID7AvnHXLkm', 1, 1, 1600835961),
-(31, 'AJI ARIAN NOFA', 'mail@mail.com', 'default.jpg', '$2y$10$Tk6CNsC/RVH0irQIA6npPuOFG7MK5LzH8cuxYPhM/jfEy6TjywLh6', 3, 1, 1601715129);
+(31, 'AJI ARIAN NOFA', 'mail@mail.com', 'default.jpg', '$2y$10$Tk6CNsC/RVH0irQIA6npPuOFG7MK5LzH8cuxYPhM/jfEy6TjywLh6', 3, 1, 1601715129),
+(32, 'Arian', 'mailyu@mail.com', 'default.jpg', '$2y$10$JyY/ADC4P34o3Zuast1Tteujp2FUu5MbsvGnkARyBAhypdQA4dUei', 1, 1, 1602493961);
 
 -- --------------------------------------------------------
 
@@ -295,7 +296,7 @@ ALTER TABLE `prodi`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_role`

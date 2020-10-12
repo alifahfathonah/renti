@@ -19,3 +19,6 @@ project sistem informasi kampus berbasis ci3 renti
 -penmbhan modul mahasiswa<br/>
 -Menunggu rancangan laporan<br/>
 -update database<br/>
+12-10-2020 (projek selesai estimasi terpenuhi 3 hari)<br/>
+-fix login dan role user<br/>
+-penmbhan menu laporan<br/>
