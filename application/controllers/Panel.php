@@ -74,7 +74,6 @@ class Panel extends CI_Controller
 		    $this->load->view('templates/panel_footer');
     	}
     }
-
     public function penelitian(){
         if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2'  && $this->session->userdata('role_id') != '1' && $this->session->userdata('role_id') != '3') {
             redirect('Auth');
@@ -88,7 +87,6 @@ class Panel extends CI_Controller
             $this->load->view('templates/panel_footer');
         }
     }
-
     public function pengab(){
         if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2' && $this->session->userdata('role_id') != '1') {
             redirect('Auth');
@@ -106,10 +104,8 @@ class Panel extends CI_Controller
         if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
             redirect('Auth');
         }else{
-
             $data['user'] = $this->Panelmodel->getuser()->result();
             $data['role'] = $this->Panelmodel->roleuser()->result();
-
             $this->load->view('templates/panel_header');
             $this->load->view('templates/panel_menu');
             $this->load->view('user/index', $data);
@@ -118,7 +114,7 @@ class Panel extends CI_Controller
     }
 
     public function laporan(){
-        if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
+        if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2' && $this->session->userdata('role_id') != '3') {
             redirect('Auth');
         }else{
             $data['riset'] = $this->Panelmodel->getriset()->result();
