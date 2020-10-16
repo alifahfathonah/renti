@@ -76,6 +76,13 @@ class PanelModel extends CI_Model {
         return $data;
     }
     public function addpenelitian($data){
+        $this->skim = $data['skim'];
+        $this->anggran = $data['anggran'];
+        $this->afliansi = $data['afliansi'];
+        $this->kelompok_bidang = $data['kelompok'];
+        $this->no_sk = $data['sk'];
+        $this->lama_kegiatan = $data['lama'];
+        $this->lokasi = $data['lokasi'];
         $this->judul_penelitian = $data['judul'];
         $this->sumber_dana = $data['sumber_Dana'];
         $this->tahun_penelitian = $data['tahun_penelitian'];
@@ -297,4 +304,41 @@ class PanelModel extends CI_Model {
     }
 
     // batas akhir untuk module user
+
+
+    // menu pendidikan
+    public function getpendidikan(){
+        $data = $this->db->get('pendidikan');
+        return $data;
+    }
+
+    public function addpendik($data){
+        $this->jenjang = $data['jenjang'];
+        $this->gelar = $data['gelar'];
+        $this->bidang_studi = $data['studi'];
+        $this->institusi = $data['stut'];
+        $this->tahun_masuk = $data['masuk'];
+        $this->tahun_lulus = $data['lulus'];
+        $this->db->insert('pendidikan', $this);
+        return;
+    }
+
+    public function pendikedit($id){
+        $this->db->where('id_pendidikan', $id); 
+        $result = $this->db->get('pendidikan')->row(); 
+        return $result;
+    }
+
+    public function pendikupdate($where,$data){
+        $this->db->where($where);
+        $this->db->update('pendidikan',$data);
+        return;
+    }
+
+    public function hapuspendik($id){
+        $this->db->where('id_pendidikan',$id);
+        $this->db->delete('pendidikan');
+       return;
+    }
+    // batas akhir module pendidikan
 }

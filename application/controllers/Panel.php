@@ -127,5 +127,16 @@ class Panel extends CI_Controller
             $this->load->view('templates/panel_footer');
         }
     }
+    public function pendidikan(){
+        if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2' && $this->session->userdata('role_id') != '3') {
+            redirect('Auth');
+        }else{
+            $data['pendik'] = $this->Panelmodel->getpendidikan()->result();
+            $this->load->view('templates/panel_header');
+            $this->load->view('templates/panel_menu');
+            $this->load->view('pendidikan/index',$data);
+            $this->load->view('templates/panel_footer');
+        }
+    }
 
 }

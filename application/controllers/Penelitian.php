@@ -32,6 +32,13 @@ class Penelitian extends CI_Controller
     	}else{
     	$this->id_files = uniqid();
     	$this->uploadFile();
+		$data['skim'] = htmlspecialchars($this->input->post('skim', true));
+		$data['anggran'] = htmlspecialchars($this->input->post('anggran', true));
+		$data['afliansi'] = htmlspecialchars($this->input->post('afliansi', true));
+		$data['kelompok'] = htmlspecialchars($this->input->post('kelompok', true));
+		$data['sk'] = htmlspecialchars($this->input->post('sk', true));
+		$data['lama'] = htmlspecialchars($this->input->post('lama', true));
+		$data['lokasi'] = htmlspecialchars($this->input->post('lokasi', true));
 		$data['judul'] = htmlspecialchars($this->input->post('judul', true));
 		$data['sumber_Dana'] = htmlspecialchars($this->input->post('sb_dana', true));
 		$data['tahun_penelitian'] = htmlspecialchars($this->input->post('tahun', true));
@@ -74,6 +81,34 @@ class Penelitian extends CI_Controller
 	                  <input type="text" class="form-control"  name="judul" value="'.$riset->judul_penelitian.'">
 	                </div>
 	                <div class="form-group">
+	                  <label>Skim Kegiatan</label>
+	                  <input type="text" class="form-control"  name="skim" value="'.$riset->skim.'">
+	                </div>
+	                <div class="form-group">
+	                  <label>Tahun Anggaran</label>
+	                  <input type="text" class="form-control"  name="anggran" value="'.$riset->anggran.'">
+	                </div>
+	                <div class="form-group">
+	                  <label>Afliansi Kelompok</label>
+	                  <input type="text" class="form-control"  name="afliansi" value="'.$riset->afliansi.'">
+	                </div>
+	                <div class="form-group">
+	                  <label>Kelompok Bidang</label>
+	                  <input type="text" class="form-control"  name="kelompok" value="'.$riset->kelompok_bidang.'">
+	                </div>
+	                <div class="form-group">
+	                  <label>No Sk Penugasan</label>
+	                  <input type="text" class="form-control"  name="sk" value="'.$riset->no_sk.'">
+	                </div>
+	                <div class="form-group">
+	                  <label>Lama Kegiatan</label>
+	                  <input type="text" class="form-control"  name="lama" value="'.$riset->lama_kegiatan.'">
+	                </div>
+	                <div class="form-group">
+	                  <label>Lokasi Kegiatan</label>
+	                  <input type="text" class="form-control"  name="lokasi" value="'.$riset->lokasi.'">
+	                </div>
+	                <div class="form-group">
 	                  <label>Tahun Penelitian</label>
 	                  <input type="text" class="form-control"  name="tahun" value="'.$riset->tahun_penelitian.'">
 	                </div>
@@ -107,6 +142,13 @@ class Penelitian extends CI_Controller
 		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2'  && $this->session->userdata('role_id') != '1' && $this->session->userdata('role_id') != '3') {
     		redirect('Auth');
     	}else{
+    		$data['skim'] = htmlspecialchars($this->input->post('skim', true));
+			$data['anggran'] = htmlspecialchars($this->input->post('anggran', true));
+			$data['afliansi'] = htmlspecialchars($this->input->post('afliansi', true));
+			$data['kelompok_bidang'] = htmlspecialchars($this->input->post('kelompok', true));
+			$data['no_sk'] = htmlspecialchars($this->input->post('sk', true));
+			$data['lama_kegiatan'] = htmlspecialchars($this->input->post('lama', true));
+			$data['lokasi'] = htmlspecialchars($this->input->post('lokasi', true));
     		$data['judul_penelitian'] = htmlspecialchars($this->input->post('judul', true));
 			$data['sumber_dana'] = htmlspecialchars($this->input->post('sb_dana', true));
 			$data['tahun_penelitian'] = htmlspecialchars($this->input->post('tahun', true));

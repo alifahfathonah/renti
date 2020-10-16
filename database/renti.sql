@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 12 Okt 2020 pada 14.30
+-- Waktu pembuatan: 16 Okt 2020 pada 04.29
 -- Versi server: 8.0.18
 -- Versi PHP: 7.3.11
 
@@ -96,6 +96,22 @@ INSERT INTO `mahasiswa` (`id_mahasiswa`, `id_fakultas`, `id_prodi`, `nama_mahasi
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `pendidikan`
+--
+
+CREATE TABLE `pendidikan` (
+  `id_pendidikan` int(11) NOT NULL,
+  `jenjang` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `gelar` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `bidang_studi` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `institusi` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `tahun_masuk` text COLLATE utf8mb4_general_ci NOT NULL,
+  `tahun_lulus` text COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `penelitian`
 --
 
@@ -105,15 +121,22 @@ CREATE TABLE `penelitian` (
   `tahun_penelitian` int(100) NOT NULL,
   `sumber_dana` varchar(100) NOT NULL,
   `jumla_dana` int(100) NOT NULL,
-  `lampiran` varchar(100) NOT NULL
+  `lampiran` varchar(100) NOT NULL,
+  `skim` text NOT NULL,
+  `anggran` text NOT NULL,
+  `afliansi` text NOT NULL,
+  `kelompok_bidang` text NOT NULL,
+  `no_sk` text NOT NULL,
+  `lama_kegiatan` text NOT NULL,
+  `lokasi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `penelitian`
 --
 
-INSERT INTO `penelitian` (`id_penelitian`, `judul_penelitian`, `tahun_penelitian`, `sumber_dana`, `jumla_dana`, `lampiran`) VALUES
-(0, 'Sistem Informasi Kampus 4.0', 2019, 'Swasta', 12000000, '5f76c85599dc6.pdf');
+INSERT INTO `penelitian` (`id_penelitian`, `judul_penelitian`, `tahun_penelitian`, `sumber_dana`, `jumla_dana`, `lampiran`, `skim`, `anggran`, `afliansi`, `kelompok_bidang`, `no_sk`, `lama_kegiatan`, `lokasi`) VALUES
+(0, 'Sistem Informasi Kampus 4.0', 2019, 'Swasta', 12000000, '5f76c85599dc6.pdf', 'umum', '2020', 'tidak ada', 'sosial', '123edrr', '2 tahun', 'ulu');
 
 -- --------------------------------------------------------
 
@@ -229,6 +252,12 @@ ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`id_mahasiswa`);
 
 --
+-- Indeks untuk tabel `pendidikan`
+--
+ALTER TABLE `pendidikan`
+  ADD PRIMARY KEY (`id_pendidikan`);
+
+--
 -- Indeks untuk tabel `penelitian`
 --
 ALTER TABLE `penelitian`
@@ -279,6 +308,12 @@ ALTER TABLE `fakultas`
 --
 ALTER TABLE `mahasiswa`
   MODIFY `id_mahasiswa` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `pendidikan`
+--
+ALTER TABLE `pendidikan`
+  MODIFY `id_pendidikan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengabdian`

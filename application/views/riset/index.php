@@ -18,7 +18,14 @@
                         <tr>
                           <th>No</th>
                           <th>Judul</th>
-                          <th>Tahun</th>
+                          <th>Skim Kegiatan</th>
+                          <th>Tahun Anggaran</th>
+                          <th>Afliansi Kelompok</th>
+                          <th>Kelompok Bidang</th>
+                          <th>NO SK Penugasan</th>
+                          <th>Lama Kegiatan</th>
+                          <th>Lokasi Kegiatan</th>
+                          <th>Tahun Pelaksanaan</th>
                           <th>Sumber Dana</th>
                           <th>Jumlah Dana</th>
                           <th>Lampiran</th>
@@ -33,6 +40,13 @@
                         <tr>
                           <td><?= $no++; ?></td>
                           <td><?= $ris->judul_penelitian; ?></td>
+                          <td><?= $ris->skim; ?></td>
+                          <td><?= $ris->anggran; ?></td>
+                          <td><?= $ris->afliansi; ?></td>
+                          <td><?= $ris->kelompok_bidang; ?></td>
+                          <td><?= $ris->no_sk; ?></td>
+                          <td><?= $ris->lama_kegiatan; ?></td>
+                          <td><?= $ris->lokasi; ?></td>
                           <td><?= $ris->tahun_penelitian; ?></td>
                           <td><?= $ris->sumber_dana; ?></td>
                           <td><?= $ris->jumla_dana; ?></td>
@@ -99,6 +113,34 @@
                 <div class="form-group">
                   <label>Judul</label>
                   <input type="text" class="form-control"  name="judul">
+                </div>
+                <div class="form-group">
+                  <label>Skim Kegiatan</label>
+                  <input type="text" class="form-control"  name="skim">
+                </div>
+                <div class="form-group">
+                  <label>Tahun Anggaran</label>
+                  <input type="text" class="form-control"  name="anggran">
+                </div>
+                <div class="form-group">
+                  <label>Afliansi Kelompok</label>
+                  <input type="text" class="form-control"  name="afliansi">
+                </div>
+                <div class="form-group">
+                  <label>Kelompok Bidang</label>
+                  <input type="text" class="form-control"  name="kelompok">
+                </div>
+                <div class="form-group">
+                  <label>No Sk Penugasan</label>
+                  <input type="text" class="form-control"  name="sk">
+                </div>
+                <div class="form-group">
+                  <label>Lama Kegiatan</label>
+                  <input type="text" class="form-control"  name="lama">
+                </div>
+                <div class="form-group">
+                  <label>Lokasi Kegiatan</label>
+                  <input type="text" class="form-control"  name="lokasi">
                 </div>
                 <div class="form-group">
                   <label>Tahun Penelitian</label>

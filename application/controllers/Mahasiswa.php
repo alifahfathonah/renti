@@ -10,7 +10,7 @@ class Mahasiswa extends CI_Controller
 	}
 
 	public function add(){
-		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2' $this->session->userdata('role_id') == '3') {
+		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2' && $this->session->userdata('role_id') == '3') {
     		redirect('Auth');
     	}else{
     	$data['id_fakultas'] = htmlspecialchars($this->input->post('fakul', true));
@@ -32,7 +32,7 @@ class Mahasiswa extends CI_Controller
 		
 	}
 	public function hapus($id){
-		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2' $this->session->userdata('role_id') == '3') {
+		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2' && $this->session->userdata('role_id') == '3') {
     		redirect('Auth');
     	}else{
 			$this->Panelmodel->hapusmahas($id);
@@ -46,7 +46,7 @@ class Mahasiswa extends CI_Controller
 	}
 
 	public function praedit(){
-		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2' $this->session->userdata('role_id') == '3') {
+		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2' && $this->session->userdata('role_id') == '3') {
     		redirect('Auth');
     	}else{
     		$id = htmlspecialchars($this->input->post('mahas', true));
@@ -104,7 +104,7 @@ class Mahasiswa extends CI_Controller
 	}
 
 	public function update(){
-		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2' $this->session->userdata('role_id') == '3') {
+		if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2' && $this->session->userdata('role_id') == '3') {
     		redirect('Auth');
     	}else{
     		$data['id_fakultas'] = htmlspecialchars($this->input->post('fakul', true));

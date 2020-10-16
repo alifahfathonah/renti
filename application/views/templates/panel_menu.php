@@ -80,6 +80,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link collapsed" href="<?= base_url('panel/pendidikan'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-user-clock"></i>
+          <span>Pendidikan</span>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link collapsed" href="<?= base_url('panel/user'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-user-clock"></i>
           <span>User</span>
@@ -107,6 +113,12 @@
     </div>
   <?php }elseif ($this->session->userdata('role_id') == '3') {
     ?>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="<?= base_url('panel/pendidikan'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-user-clock"></i>
+          <span>Pendidikan</span>
+        </a>
+    </li>
     <li class="nav-item">
         <a class="nav-link collapsed" href="<?= base_url('panel/penelitian'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-user-clock"></i>
