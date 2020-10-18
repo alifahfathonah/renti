@@ -108,6 +108,12 @@
           <span>Pengabdian Masyarakat</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="<?= base_url('panel/laporan'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-user-clock"></i>
+          <span>Laporan</span>
+        </a>
+      </li>
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
