@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 16 Okt 2020 pada 04.29
+-- Waktu pembuatan: 27 Okt 2020 pada 12.53
 -- Versi server: 8.0.18
 -- Versi PHP: 7.3.11
 
@@ -136,7 +136,7 @@ CREATE TABLE `penelitian` (
 --
 
 INSERT INTO `penelitian` (`id_penelitian`, `judul_penelitian`, `tahun_penelitian`, `sumber_dana`, `jumla_dana`, `lampiran`, `skim`, `anggran`, `afliansi`, `kelompok_bidang`, `no_sk`, `lama_kegiatan`, `lokasi`) VALUES
-(0, 'Sistem Informasi Kampus 4.0', 2019, 'Swasta', 12000000, '5f76c85599dc6.pdf', 'umum', '2020', 'tidak ada', 'sosial', '123edrr', '2 tahun', 'ulu');
+(1, 'Sistem Informasi Kampus 4.0', 2019, 'Swasta', 12000000, '5f76c85599dc6.pdf', 'umum', '2020', 'tidak ada', 'sosial', '123edrr', '2 tahun', 'ulu');
 
 -- --------------------------------------------------------
 
@@ -314,6 +314,12 @@ ALTER TABLE `mahasiswa`
 --
 ALTER TABLE `pendidikan`
   MODIFY `id_pendidikan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `penelitian`
+--
+ALTER TABLE `penelitian`
+  MODIFY `id_penelitian` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengabdian`
