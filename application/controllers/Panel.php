@@ -37,19 +37,6 @@ class Panel extends CI_Controller
     	}
     }
 
-    public function mahasiswa(){
-    	if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
-    		redirect('Auth');
-    	}else{
-    		$data['mahas'] = $this->Panelmodel->getmahas()->result();
-            $data['fakul'] = $this->Panelmodel->getfakultas()->result();
-            $data['prodi'] = $this->Panelmodel->getprodi()->result();
-    		$this->load->view('templates/panel_header');
-		    $this->load->view('templates/panel_menu');
-            $this->load->view('mahas/index',$data);
-		    $this->load->view('templates/panel_footer');
-    	}
-    }
     public function dosen(){
         if ($this->session->userdata('login') != 'zpmlogin' && $this->session->userdata('role_id') != '2') {
             redirect('Auth');

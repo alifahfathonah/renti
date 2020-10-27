@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 27 Okt 2020 pada 12.53
+-- Waktu pembuatan: 27 Okt 2020 pada 12.58
 -- Versi server: 8.0.18
 -- Versi PHP: 7.3.11
 
@@ -67,31 +67,6 @@ CREATE TABLE `fakultas` (
 INSERT INTO `fakultas` (`id_fakultas`, `kode_fakul`, `nama_fakul`, `alamat_fakul`, `telp_fakul`, `email_fakul`) VALUES
 (2, 'FT', 'Fakultas Teknik', 'juwita kanan', '3256562', 'mail@mail.com'),
 (3, 'FKIP', 'Keguruan dan Ilmu Pendidikan', 'jl nangka', '3435', 'mail1@mail.com');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `mahasiswa`
---
-
-CREATE TABLE `mahasiswa` (
-  `id_mahasiswa` int(15) NOT NULL,
-  `id_fakultas` int(15) NOT NULL,
-  `id_prodi` int(15) NOT NULL,
-  `nama_mahasiswa` text COLLATE utf8mb4_general_ci NOT NULL,
-  `tempat_lahir` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `tanggal_lahir` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `alamat` text COLLATE utf8mb4_general_ci NOT NULL,
-  `telp` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `mahasiswa`
---
-
-INSERT INTO `mahasiswa` (`id_mahasiswa`, `id_fakultas`, `id_prodi`, `nama_mahasiswa`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `telp`, `email`) VALUES
-(2, 2, 15, 'FAISAL INASRI', 'Bengkulu', '2020-09-30', 'nangka lintas', '766666666677', 'mail1@mail.com');
 
 -- --------------------------------------------------------
 
@@ -246,12 +221,6 @@ ALTER TABLE `fakultas`
   ADD PRIMARY KEY (`id_fakultas`);
 
 --
--- Indeks untuk tabel `mahasiswa`
---
-ALTER TABLE `mahasiswa`
-  ADD PRIMARY KEY (`id_mahasiswa`);
-
---
 -- Indeks untuk tabel `pendidikan`
 --
 ALTER TABLE `pendidikan`
@@ -302,12 +271,6 @@ ALTER TABLE `dosen`
 --
 ALTER TABLE `fakultas`
   MODIFY `id_fakultas` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT untuk tabel `mahasiswa`
---
-ALTER TABLE `mahasiswa`
-  MODIFY `id_mahasiswa` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `pendidikan`

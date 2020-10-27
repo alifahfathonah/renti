@@ -22,7 +22,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="./">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+          <span>Home</span></a>
       </li>
       
       <!-- Divider -->
@@ -43,12 +43,7 @@
           <span>Prodi</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="<?= base_url('panel/mahasiswa'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-user-clock"></i>
-          <span>Mahasiswa</span>
-        </a>
-      </li>
+      
       <li class="nav-item">
         <a class="nav-link collapsed" href="<?= base_url('panel/dosen'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-user-clock"></i>
@@ -143,12 +138,7 @@
           <span>Pengabdian Masyarakat</span>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="<?= base_url('panel/mahasiswa'); ?>" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-user-clock"></i>
-          <span>Mahasiswa</span>
-        </a>
-      </li>
+      
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
