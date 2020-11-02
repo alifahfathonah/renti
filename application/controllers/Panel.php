@@ -105,7 +105,6 @@ class Panel extends CI_Controller
             redirect('Auth');
         }else{
             $data['riset'] = $this->Panelmodel->getriset()->result();
-            $data['mahas'] = $this->Panelmodel->getmahas()->result();
             $data['pengab'] = $this->Panelmodel->getpengab()->result();
             $data['fakul'] = $this->Panelmodel->getfakultas()->result();
             $this->load->view('templates/panel_header');

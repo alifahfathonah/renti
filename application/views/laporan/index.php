@@ -52,57 +52,6 @@
             </div>
             </div>
             </div>
-            
-            <div class="col-lg-12 mb-4">
-
-              <!-- Illustrations -->
-                <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Data Mahasiswa</h6>
-                  </div>
-                  <div class="card-body">
-                    <?= $this->session->flashdata('message'); ?>
-                    <div>
-                    <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Fakultas</th>
-                          <th>Prodi</th>
-                          <th>Nama</th>
-                          <th>Tempat Lahir</th>
-                          <th>Tanggal Lahir</th>
-                          <th>Alamat</th>
-                          <th>Telp</th>
-                          <th>Email</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php 
-                        $no = 1;
-                        foreach ($mahas as $mh) {
-                         ?>
-                        <tr>
-                          <td><?= $no++; ?></td>
-                          <td><?= $mh->nama_fakul; ?></td>
-                          <td><?= $mh->nama_prodi; ?></td>
-                          <td><?= $mh->nama_mahasiswa; ?></td>
-                          <td><?= $mh->tempat_lahir; ?></td>
-                          <td><?= $mh->tanggal_lahir; ?></td>
-                          <td><?= $mh->alamat; ?></td>
-                          <td><?= $mh->telp; ?></td>
-                          <td><?= $mh->email; ?></td>
-                        </tr>
-                        <?php } ?>
-                      </tbody>
-                    </table>
-                  </div>        
-              </table>
-            </div>
-          </div>
-          </div>
-        </div>
           <div class="col-lg-12 mb-4">
 
               <!-- Illustrations -->
